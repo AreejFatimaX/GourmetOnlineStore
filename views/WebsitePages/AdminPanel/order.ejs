@@ -1,0 +1,82 @@
+<div class="container">
+    <h2>Orders</h2>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Items</th>
+                <th>Total Amount</th>
+                <th>Status</th>
+                <th>Payment Method</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+            <% orders.forEach((order, index) => { %>
+                <tr>
+                    <td><%= index + 1 %></td>
+                    <!-- Accessing populated user_id to get customer name and email -->
+                    <td><%= order.user_id.name %></td>  <!-- changed from order.customer.name -->
+                    <td><%= order.user_id.email %></td> <!-- changed from order.customer.email -->
+                    <td>
+                       
+                            <% order.items.forEach(item => { %>
+                                <div>
+                                    <%= item.product_id.title %><%= item.quantity %>
+                                </div>
+                            <% }) %>
+                     
+                    </td>
+                    <td><%= order.total_amount %> USD</td>
+                    <td>
+                        <select class="form-control" id="order-status-<%= order._id %>" onchange="updateOrderStatus('<%= order._id %>')">
+                            <option value="Pending" <%= order.status === 'Pending' ? 'selected' : '' %>>Pending</option>
+                            <option value="Shipped" <%= order.status === 'Shipped' ? 'selected' : '' %>>Shipped</option>
+                            <option value="Delivered" <%= order.status === 'Delivered' ? 'selected' : '' %>>Delivered</option>
+                        </select>
+                    </td>
+                    <td><%= order.payment_method %></td>
+ 
+                </tr>
+            <% }) %>
+        </tbody>
+    </table>
+</div>
+
+<script>
+    // Function to update order status via AJAX
+    
+    async function updateOrderStatus(orderId) {
+    const status = document.getElementById(`order-status-${orderId}`).value;
+
+    try {
+        const response = await fetch(`/admin/orders/update-status/${orderId}`, {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify({ status: status })
+        });
+
+        if (!response.ok) {
+            const errorResponse = await response.json();
+            alert(errorResponse.message || 'Failed to update status');
+            return;
+        }
+
+        const result = await response.json();
+        if (result.success) {
+            alert('Order status updated successfully!');
+        } else {
+            alert('Failed to update status');
+        }
+    } catch (error) {
+        console.error('Error updating order status:', error);
+        alert('There was an error updating the order status');
+    }
+}
+
+</script>

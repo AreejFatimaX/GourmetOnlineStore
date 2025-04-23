@@ -1,0 +1,48 @@
+<div class="container mt-5">
+    <h1 class="mb-4">Your Cart</h1>
+  
+    <% if (cart && cart.items.length > 0) { %>
+      <table class="table table-striped">
+        <thead class="thead-dark">
+          <tr>
+            <th>Product</th>
+            <th>Quantity</th>
+            <th>Price</th>
+            <th>Total</th>
+            <th>Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% let totalPrice = 0; %>
+          <% cart.items.forEach(item => { %>
+            <% totalPrice += item.productId.price * item.quantity; %>
+            <tr>
+              <td><%= item.productId.title %></td>
+              <td><%= item.quantity %></td>
+              <td>PKR <%= item.productId.price %></td>
+              <td>PKR <%= item.productId.price * item.quantity %></td>
+              <td>
+                <form action="/remove-from-cart/<%= item.productId._id %>" method="POST">
+                  <button type="submit" class="btn btn-danger btn-sm">Remove</button>
+                </form>
+              </td>
+            </tr>
+          <% }) %>
+          <tr>
+            <td colspan="3" class="text-right"><strong>Total:</strong></td>
+            <td colspan="2"><strong>PKR <%= totalPrice %></strong></td>
+          </tr>
+        </tbody>
+      </table>
+  
+      <div class="mt-4">
+        <a href="/checkout" class="btn btn-primary">Proceed to Checkout</a>
+        <a href="/products" class="btn btn-secondary">Continue Shopping</a>
+      </div>
+    <% } else { %>
+      <div class="alert alert-warning" role="alert">
+        Your cart is empty. <a href="/products" class="alert-link">Browse products</a> to add items to your cart.
+      </div>
+    <% } %>
+  </div>
+  

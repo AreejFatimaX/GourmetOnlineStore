@@ -1,0 +1,41 @@
+<div class="container-fluid">
+    <div class="row">
+        <!-- Dashboard Cards or Widgets -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Products</h5>
+                    <p class="card-text"><%= products.length %></p>
+                    <a href="/admin/products" class="btn btn-primary">View Products</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Total Categories</h5>
+                    <p class="card-text"><%= categories.length %></p>
+                    <a href="/admin/viewcatagories" class="btn btn-primary">View Categories</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Example: Recent Activities or Statistics -->
+        <div class="col-md-4">
+            <div class="card">
+                <div class="card-body">
+                    <h5 class="card-title">Recent Products</h5>
+                    <ul class="list-group">
+                        <% products.slice(0, 5).forEach(function(product) { %>
+                            <li class="list-group-item">
+                                <%= product.title %>
+                            </li>
+                        <% }); %>
+                    </ul>
+                    <a href="/admin/products" class="btn btn-primary mt-2">View All Products</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

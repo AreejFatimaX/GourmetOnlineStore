@@ -1,0 +1,145 @@
+<style>
+        .card-form {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            width: 100%;
+            max-width: 800px;
+            transform: translateY(0);
+            transition: all 0.3s ease;
+        }
+
+        .card-form:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+        }
+
+            </style>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="card-form">
+                    <h2 class="form-title">
+                        <i class="fas fa-box-open me-2"></i>Add New Product
+                    </h2>
+                    <form method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+                        <div class="mb-4">
+                            <label for="productTitle" class="form-label">
+                                <i class="fas fa-tag me-2"></i>Product Title
+                            </label>
+                            <input type="text" id="productTitle" name="title" class="form-control" required
+                                minlength="3" maxlength="100" placeholder="Enter product name">
+                            <div class="invalid-feedback">
+                                Product title must be between 3 and 100 characters.
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="productDescription" class="form-label">
+                                <i class="fas fa-comment-dots me-2"></i>Description
+                            </label>
+                            <textarea id="productDescription" name="description" class="form-control" rows="4" required
+                                minlength="10" maxlength="500"
+                                placeholder="Provide a detailed product description"></textarea>
+                            <div class="invalid-feedback">
+                                Description must be between 10 and 500 characters.
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="productPrice" class="form-label">
+                                <span>&#x20A8;</span>.  Price
+                            </label>
+                            <div class="input-group">
+                                <input type="number" id="productPrice" name="price" class="form-control" required
+                                    min="0" step="0.01" placeholder="0.00">
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter a valid price.
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="quantity" class="form-label">
+                                Quantity
+                            </label>
+                            <div class="input-group">
+                                <input type="number" id="quantity" name="quantity" class="form-control" required
+                                    min="1"  placeholder="0">
+                            </div>
+                            <div class="invalid-feedback">
+                                Please enter a valid number.
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <label for="productImage" class="form-label">
+                                <i class="fas fa-image me-2"></i>Product Image
+                            </label>
+                            <div class="custom-file-input">
+                                <input type="file" id="productImage" name="file" accept="image/*" class="form-control" required>
+                                <label class="file-label" for="productImage">
+                                    Choose image
+                                </label>
+                            </div>
+                            <div class="invalid-feedback">
+                                Please select a product image.
+                            </div>
+                        </div>
+
+                        <div class="mb-4">
+                            <div class="form-check">
+                                <input type="checkbox" id="IsraelProducts" name="isBoycotted" class="form-check-input">
+                                <label class="form-check-label" for="IsraelProducts">
+                                    <i class="fas fa-star me-2"></i>Israel Product
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-custom">
+                                <i class="fas fa-plus me-2"></i>Add Product
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // Form validation
+        (function() {
+            'use strict';
+            const forms = document.querySelectorAll('.needs-validation');
+            
+            Array.from(forms).forEach(form => {
+                form.addEventListener('submit', event => {
+                    if (!form.checkValidity()) {
+                        event.preventDefault();
+                        event.stopPropagation();
+                    }
+                    form.classList.add('was-validated');
+                }, false);
+            });
+        })();
+
+        // Show selected filename
+        document.getElementById('productImage').addEventListener('change', function(e) {
+            var fileName = e.target.files[0] ? e.target.files[0].name : 'Choose image';
+            var label = document.querySelector('.file-label');
+            label.textContent = fileName;
+        });
+
+        // Add ripple effect to button
+        const button = document.querySelector('.btn-custom');
+        button.addEventListener('mouseenter', function(e) {
+            const ripple = document.createElement('div');
+            ripple.classList.add('ripple');
+            this.appendChild(ripple);
+            setTimeout(() => ripple.remove(), 1000);
+        });
+    </script>

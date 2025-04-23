@@ -1,0 +1,31 @@
+<link rel="stylesheet" href="../css/form.css">
+<div class="form-container">
+    <div class="login-form"><img src="images/site_logo.png" alt="logo" class='logo'></div>
+    <!-- Sign Up Form -->
+        <form action="/register" method="post" >
+        <div class="form-group">
+            <input type="text" placeholder="Name" name="name" required>
+            <div class="error" id="signUpNameError"></div>
+        </div>
+        <div class="form-group">
+            <input type="email" placeholder="Email" name="email" required>
+            <div class="error" id="signUpEmailError"></div>
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Password" name="password" required>
+            <div class="error" id="signUpPasswordError"></div>
+        </div>
+        <div class="form-group">
+            <select name="role" required>
+                <option value="" disabled selected>Select Role</option>
+                <option value="customer">Customer</option>
+                <option value="admin">Admin</option>
+            </select>
+            <div class="error" id="signUpRoleError"></div>
+        </div>
+        <div class="form-buttons">
+            <button type="submit" class="login-btn">Sign Up<i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+        <p>© Copyrights 2023 All Rights Reserved.</p>
+    </form>
+</div>

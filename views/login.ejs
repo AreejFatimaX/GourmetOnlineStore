@@ -1,0 +1,21 @@
+<link rel="stylesheet" href="../css/form.css">
+<div class="form-container">
+<div class="login-form"><img src="images/site_logo.png" alt="logo" class='logo'></div>
+<div id="Login" class="tabcontent">
+    <form action="/login" method="post">
+        <div class="form-group">
+            <input type="email" placeholder="Email" name="email" required>
+            <div class="error" id="loginEmailError"></div>
+        </div>
+        <div class="form-group">
+            <input type="password" placeholder="Password" name="password" required>
+            <div class="error" id="loginPasswordError"></div>
+        </div>
+        <div class="form-buttons">
+            <button type="submit" class="login-btn">Login<i class="fa-solid fa-arrow-right"></i></button>
+            <a href="/register" class="forgot-password">SignUp</a>
+        </div>
+        <p>© Copyrights 2023 All Rights Reserved.</p>
+    </form>
+</div>
+</div>

@@ -1,0 +1,94 @@
+<style>
+        .card-form {
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            border-radius: 12px;
+            background-color: white;
+            padding: 30px;
+            margin-top: 50px;
+            transition: all 0.3s ease;
+        }
+
+        .card-form:hover {
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.15);
+            transform: translateY(-5px);
+        }
+    </style>
+<body>
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-md-6">
+                    <div class="card-form">
+                        <h2 class="text-center mb-4">
+                            <i class="fas fa-box-open me-2"></i>Add New Product
+                        </h2>
+                        <form method="post">
+                            <div class="mb-3">
+                                <label for="productTitle" class="form-label">
+                                    <i class="fas fa-tag me-2"></i>Product Title
+                                </label>
+                                <input type="text" id="productTitle" name="title" class="form-control" required
+                                    minlength="3" maxlength="100" placeholder="Enter product name" value="<%= product.title %>">
+                                <div class="invalid-feedback">
+                                    Product title must be between 3 and 100 characters.
+                                </div>
+                            </div>
+    
+                            <div class="mb-3">
+                                <label for="productDescription" class="form-label">
+                                    <i class="fas fa-comment-dots me-2"></i>Description
+                                </label>
+                                <textarea id="productDescription" name="description" class="form-control" rows="4" required
+                                    minlength="10" maxlength="500"
+                                    placeholder="Provide a detailed product description">value="<%= product.description %>"</textarea>
+                                <div class="invalid-feedback">
+                                    Description must be between 10 and 500 characters.
+                                </div>
+                            </div>
+    
+                            <div class="mb-3">
+                                <label for="productPrice" class="form-label">
+                                    <span>&#x20A8;</span>.  Price
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" id="productPrice" name="price" class="form-control" required
+                                        min="0" placeholder="0.00" value="<%= product.price %>">
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a valid price.
+                                </div>
+                            </div>
+                            <div class="mb-4">
+                                <label for="quantity" class="form-label">
+                                    Quantity
+                                </label>
+                                <div class="input-group">
+                                    <input type="number" id="quantity" name="quantity" class="form-control" required
+                                        min="1"  placeholder="0" value="<%= product.Quantity %>">
+                                </div>
+                                <div class="invalid-feedback">
+                                    Please enter a valid number.
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label">
+                                    <i class="fas fa-star me-2"></i>Israel Product
+                                </label>
+                                <div class="d-flex">
+                                    <label class="form-check-label" for="boycottedNo">
+                                        isBoycotted
+                                    </label>
+                                    <input type="checkbox" id="boycottedNo" name="isBoycotted" class="form-check-input"  value="<%= product.isBoycotted %>">
+                                </div>
+                            </div>
+                     
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-custom w-100">
+                                    <i class="fas fa-plus me-2"></i>Add Product
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>

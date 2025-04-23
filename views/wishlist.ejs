@@ -1,0 +1,18 @@
+<div id="wishlist-page">
+    <h2>Your Wishlist</h2>
+  
+    <% if (wishlist && wishlist.length > 0) { %>
+      <ul>
+        <% wishlist.forEach(item => { %>
+          <li>
+            <img src="<%= item.image %>" alt="<%= item.title %>" width="50">
+            <strong><%= item.title %></strong>
+            <span>Price: $<%= item.price %></span>
+            <a href="/wishlist/remove/<%= item.productId %>">Remove</a>
+          </li>
+        <% }); %>
+      </ul>
+    <% } else { %>
+      <p>Your wishlist is empty.</p>
+    <% } %>
+  </div>

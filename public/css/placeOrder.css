@@ -1,0 +1,354 @@
+/* Global body styling */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+    background-color: #fff;
+    font-family: 'Arial', sans-serif;
+}
+
+/* Carousel item image styling */
+.carousel-item img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+}
+
+/* Carousel controls customization */
+.carousel-control-prev,
+.carousel-control-next {
+    width: 5%;
+}
+
+/* Root color variables */
+:root {
+    --gourmet-orange: #FF8A3D;
+    --text-dark: #333333;
+    --background-light: #f5f5f5;
+}
+
+/* Product Grid styling */
+.product-grid {
+    padding: 20px;
+}
+
+/* Individual Product Card Styling */
+.product-card {
+    background: white;
+    border-radius: 8px;
+    padding: 15px;
+    margin-bottom: 25px;
+    transition: transform 0.2s;
+    border: 1px solid #eee;
+}
+
+/* Hover effect for product cards */
+.product-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Image wrapper within product card */
+.product-image-wrapper {
+    position: relative;
+    margin-bottom: 15px;
+}
+
+/* Product image styling */
+.product-image {
+    width: 100%;
+    height: 200px;
+    object-fit: contain;
+    border-radius: 4px;
+}
+
+/* Unit badge (quantity) on product image */
+.unit-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: var(--gourmet-orange);
+    color: white;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Product title styling */
+.product-title {
+    color: var(--text-dark);
+    font-size: 16px;
+    margin-bottom: 8px;
+    font-weight: 500;
+    height: 40px;
+    overflow: hidden;
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+}
+
+/* Product price styling */
+.product-price {
+    color: var(--text-dark);
+    font-size: 18px;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* Add to cart button styling */
+.add-btn {
+    background-color: var(--gourmet-orange);
+    color: white;
+    border: none;
+    width: 100%;
+    padding: 8px;
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+/* Hover effect for add to cart button */
+.add-btn:hover {
+    background-color: #ff7524;
+}
+
+/* Main content styling */
+main {
+    flex: 1;
+}
+
+/* Header Styling */
+header {
+    position: fixed;
+    width: 100%;
+    height: 65px;
+    z-index: 1000;
+    background-color: var(--background-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 40px;
+}
+
+/* Logo styling */
+.logo img {
+    margin-left: 100px;
+    height: 55px;
+}
+
+/* Header buttons styling */
+.header-buttons a {
+    margin-left: 20px;
+    padding: 10px 20px;
+    border-radius: 50px;
+    font-weight: 500;
+}
+
+/* Login button styling */
+.btn-login {
+    background-color: #ff8c00;
+    color: #fff;
+    text-decoration: none;
+}
+
+/* Call button styling */
+.btn-call {
+    text-decoration: none;
+    background-color: #fff;
+    color: #ff8c00;
+    font-weight: bold;
+    font-size: 14px;
+    border: 1px solid #ff8c00;
+}
+
+/* Hover effects for login button */
+.btn-login:hover {
+    background-color: #2c4154;
+}
+
+/* Hover effects for call button */
+.btn-call:hover {
+    background-color: #ff8c00;
+    color: #ffffff;
+}
+
+/* Footer Styling */
+footer {
+    background-color: var(--background-light);
+    color: #333;
+    text-align: center;
+    padding: 20px 0;
+    border-top: 1px solid #ddd;
+    width: 100%;
+}
+/* Container for the search form */
+.search-form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto; /* Centers the content horizontally */
+}
+
+/* Ensure the search form is properly styled */
+.search-form {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    background-color: #ffffff;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1); /* Soft shadow */
+    width: 80%; /* Adjust as needed */
+    transition: box-shadow 0.3s ease;
+}
+
+/* Search Input Field */
+.search-form input {
+    padding: 12px 15px;
+    font-size: 16px;
+    width: 50%;
+    margin-right: 15px;
+    border: 2px solid #ff7f00;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Filter dropdown */
+.search-form select#isBoycotted {
+    padding: 12px 15px;
+    font-size: 16px;
+    width: 20%;
+    margin-right: 15px;
+    border: 2px solid #ff7f00;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Sort By dropdown */
+.search-form select#sortBy {
+    padding: 12px 15px;
+    font-size: 16px;
+    width: 12%;
+    margin-right: 15px;
+    border: 2px solid #ff7f00;
+    border-radius: 10px;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+/* Search Button */
+.search-form button {
+    padding: 12px 25px;
+    font-size: 16px;
+    background-color: #ff7f00;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    width: 16%;
+}
+
+/* Button Hover Effects */
+.search-form button:hover {
+    background-color: #e76a00;
+    transform: scale(1.05);
+}
+
+/* Responsive Design for Mobile View */
+@media (max-width: 768px) {
+    .search-form-container {
+        height: auto; /* Remove 100vh for small screens */
+        padding: 20px;
+    }
+
+    .search-form {
+        width: 100%;
+        padding: 10px 15px;
+        flex-wrap: wrap;
+    }
+
+    .search-form input,
+    .search-form select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-form button {
+        width: 100%;
+    }
+}
+
+@media (max-width: 768px) {
+    .search-form {
+        width: 250px;
+        padding: 8px 15px;
+        flex-wrap: wrap;
+    }
+
+    .search-form input,
+    .search-form select {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .search-form button {
+        width: 100%;
+    }
+}
+
+/* Pagination container */
+.pagination-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+/* Pagination list */
+.pagination {
+    list-style: none;
+    display: flex;
+    gap: 10px;
+}
+
+/* Page item style (numbers themselves) */
+.page-item {
+    padding: 8px 12px;
+    background-color: transparent; /* Transparent background for numbers */
+    color: #333; /* Dark text for numbers */
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.page-item.active {
+    background-color: #ff7524; /* Orange background when active */
+}
+
+/* Anchor tag (page links) styling */
+.page-item a {
+    text-decoration: none; /* Remove underline from links */
+    color: white; /* White text color */
+    padding: 8px 12px; /* Add padding around the link */
+    background-color: #ff7524; /* Orange background for page links */
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
+}
+
+/* Hover effect for page links */
+.page-item a:hover {
+    background-color: #853203; /* Darker orange background on hover */
+    color: #f5f5f5;
+}
+
+/* Optional: active page link with blue background */
+.page-item a.active {
+    background-color: #461a01; /* Change to blue if needed */
+    color: white;
+}
+
+i{
+    color: #e76a00;
+    font-size: 20px;
+}

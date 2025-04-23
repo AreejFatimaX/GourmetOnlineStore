@@ -1,0 +1,54 @@
+<style>
+body {
+    min-height: 100vh;
+    background: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+  }
+</style>
+<div class="category-form-container">
+    <h2 class="form-title">Edit Category</h2>
+    <!-- The form uses the POST method to update the category -->
+    <form id="categoryForm" method="POST" action="/admin/categories/edit/<%= category._id %>" class="needs-validation" novalidate>
+        <div class="mb-4">
+            <label for="categoryName" class="form-label">Category Name</label>
+            <!-- Pre-fill the input with the current category name -->
+            <input 
+                type="text" 
+                class="form-control" 
+                id="categoryName" 
+                name="categoryName" 
+                placeholder="Enter category name" 
+                required
+                value="<%= category.categoryName %>"
+            >
+            <div class="invalid-feedback">
+                Please provide a category name.
+            </div>
+        </div>
+        <button type="submit" class="btn btn-custom">
+            Update Category
+        </button>
+    </form>
+</div>
+
+<script>
+    // Form validation
+    (function() {
+        'use strict';
+        const forms = document.querySelectorAll('.needs-validation');
+        
+        Array.from(forms).forEach(form => {
+            form.addEventListener('submit', event => {
+                if (!form.checkValidity()) {
+                    event.preventDefault();
+                    event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+            }, false);
+        });
+    })();
+</script>
+
